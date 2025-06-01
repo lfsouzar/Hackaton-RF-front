@@ -114,3 +114,17 @@ video {
     }
   }
 }
+
+.app-footer {
+  background-color: #00254f;  // azul institucional
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  margin-top: auto;  // empurra para o final da tela
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+.spacer{
+  height: 367px;
+}

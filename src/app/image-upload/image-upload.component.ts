@@ -11,6 +11,9 @@ import {CommonModule} from "@angular/common";
 })
 export class ImageUploadComponent {
 
+  currentYear = new Date().getFullYear();
+
+
   @ViewChild('video') video!: ElementRef<HTMLVideoElement>;
   @ViewChild('canvas') canvas!: ElementRef<HTMLCanvasElement>;
 
