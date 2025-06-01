@@ -1,2 +1,45 @@
-<app-image-upload style="height: 100%; display: flex; flex-direction: column;"
-></app-image-upload>
+<header class="app-header">
+  <img src="./assets/images/logo-rf-white.svg"
+       alt="Logo Receita Federal"
+       class="logo">
+  <div class="header-text">
+    <h1>ACE</h1>
+    <h2>
+      Análise de Cigarro Eletrônico
+    </h2>
+  </div>
+</header>
+
+<main class="main-content">
+
+
+  <div class="container">
+    <h2 class="title">Escaneie o Cigarro Eletrônico</h2>
+
+    <button class="capture-button" #camera (click)="startCamera(); camera.hidden = true">Abrir Câmera</button>
+
+    <ng-container *ngIf="cameraOpen">
+      <canvas #canvas style="display: none;"></canvas>
+      <video #video autoplay playsinline></video>
+
+    </ng-container>
+
+    <div *ngIf="showToast1" class="toast">
+      Vape detectado! <br>
+      Processando...
+    </div>
+
+    <div *ngIf="showToast2" class="toast">
+      Vape Canetinha Safado
+    </div>
+  </div>
+
+
+
+
+</main>
+
+
+<footer class="app-footer">
+  Aplicativo da Receita Federal do Brasil © {{ currentYear }}
+</footer>

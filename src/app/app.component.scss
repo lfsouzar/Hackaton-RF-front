@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 5%;
+  max-width: 100%;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+video {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+}
+
+.preview img {
+  max-width: 320px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+}
+
+.capture-button, .send-button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.capture-button {
+  background-color: #4f46e5;
+  color: white;
+
+  &:hover {
+    background-color: #4338ca;
+  }
+}
+
+.send-button {
+  background-color: #10b981;
+  color: white;
+
+  &:hover {
+    background-color: #059669;
+  }
+
+  &:disabled {
+    background-color: #d1d5db;
+    cursor: not-allowed;
+  }
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4f46e5;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 5%;
+  background-color: #00254f;  // azul institucional
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  .logo {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+    color: white;
+  }
+
+  .header-text {
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #d9e6f2;
+    }
+  }
+}
+
+.app-footer {
+  background-color: #00254f;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+//.spacer{
+//  height: 367px;
+//}
