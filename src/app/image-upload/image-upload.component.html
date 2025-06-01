@@ -1,1 +1,23 @@
-<p>image-upload works!</p>
+<div class="width-100">
+  <div class="container">
+    <h2 class="title">Analisar Cigarro Eletrônico</h2>
+
+    <button class="capture-button" #camera (click)="startCamera(); camera.hidden = true">Abrir Câmera</button>
+
+    <ng-container *ngIf="cameraOpen">
+      <canvas #canvas style="display: none;"></canvas>
+      <video #video autoplay playsinline></video>
+
+    </ng-container>
+
+    <div *ngIf="showToast1" class="toast">
+      Vape detectado! <br>
+      Processando...
+    </div>
+
+    <div *ngIf="showToast2" class="toast">
+      Vape Canetinha Safado
+    </div>
+  </div>
+
+</div>
