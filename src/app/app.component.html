@@ -14,7 +14,20 @@
 
 
   <div class="container">
-    <h2 class="title">Escaneie o Cigarro Eletrônico</h2>
+    <ng-container *ngIf="!cameraOpen">
+      <h2 class="title">Escaneie o Cigarro Eletrônico</h2>
+    </ng-container>
+    <ng-container  *ngIf="cameraOpen">
+      <div class="h-container">
+        <h2 class="title">Escaneie Novamente</h2>
+        <button class="refresh-button" #refreshCamera (click)="scanAgain()">
+          <mat-icon>
+            refresh
+          </mat-icon>
+        </button>
+      </div>
+
+    </ng-container>
 
     <button class="capture-button" #camera (click)="startCamera(); camera.hidden = true">Abrir Câmera</button>
 
@@ -24,13 +37,14 @@
 
     </ng-container>
 
-    <div *ngIf="showToast1" class="toast">
+    <div *ngIf="showToast1" class="toast warning">
       Vape detectado! <br>
       Processando...
     </div>
 
     <div *ngIf="showToast2" class="toast">
-      Vape Canetinha Safado
+      <p>{{vapeDetected}}</p>
+      <b>Modelo: {{vapeModel}}</b>
     </div>
   </div>
 

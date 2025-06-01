@@ -2,11 +2,12 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NgIf} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-    imports: [RouterOutlet, NgIf],
+  imports: [RouterOutlet, NgIf, MatIcon],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -23,6 +24,9 @@ export class AppComponent {
   cameraOpen: boolean = false;
   showToast1: boolean = false;
   showToast2: boolean = false;
+  vapeDetected: string = '';
+  vapeModel: string = 'Caneta Descartável';
+  vapeCounter: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -31,6 +35,7 @@ export class AppComponent {
 
   async startCamera() {
     this.cameraOpen = true;
+    this.vapeDetected = "BLVK Disposable - Ello";
     setTimeout(()=>{}, 1000)
     await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
       .then(stream => {
@@ -41,14 +46,52 @@ export class AppComponent {
       });
 
     setTimeout( ()=>{
-      this.showToast1 = true
-    }, 700)
-    setTimeout( ()=>{
-      this.showToast1 = false;
+      this.showToast1 = true;
       setTimeout( ()=>{
-        this.showToast2 = true;
-      }, 200)
-    }, 4000)
+        this.showToast1 = false;
+        setTimeout( ()=>{
+          this.showToast2 = true;
+          setTimeout(()=>{
+            this.showToast1 = false;
+            this.showToast2 = false;
+          }, 4500);
+        }, 200)
+      }, 2000);
+    }, 700)
+
+
+
+
+  }
+
+  scanAgain() {
+    this.showToast1 = false;
+    this.showToast2 = false;
+    this.vapeCounter += 1;
+
+    if (this.vapeCounter % 2 === 0) {
+      this.vapeDetected = "BLVK Disposable - Ello";
+    } else {
+      this.vapeDetected = "BalMY MAX";
+    }
+
+    // setTimeout( ()=>{
+    //
+    // }, 1000);
+
+    setTimeout( ()=>{
+      this.showToast1 = true;
+      setTimeout( ()=>{
+        this.showToast1 = false;
+        setTimeout( ()=>{
+          this.showToast2 = true;
+          setTimeout(()=>{
+            this.showToast1 = false;
+            this.showToast2 = false;
+          }, 4500);
+        }, 200)
+      }, 2000);
+    }, 700)
 
   }
 
@@ -65,4 +108,6 @@ export class AppComponent {
 
     return new Blob([ab], { type: mimeString });
   }
+
+
 }

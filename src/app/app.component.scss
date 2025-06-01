@@ -41,6 +41,31 @@ video {
   }
 }
 
+.refresh-button {
+  background-color: #00254f;
+  color: white;
+  &:hover {
+    background-color: rgba(0, 37, 79, 0.8);
+  }
+  padding: 2px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.h-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2{
+    margin-right: 15px;
+  }
+}
+
 .send-button {
   background-color: #10b981;
   color: white;
@@ -57,15 +82,24 @@ video {
 
 .toast {
   position: fixed;
-  bottom: 20px;
+  bottom: 75px;
   left: 50%;
   transform: translateX(-50%);
-  background: #4f46e5;
+  background: #4caf50;
   color: white;
-  padding: 1rem 1.5rem;
+  padding: 0 12px 12px 12px;
+  width: 250px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   animation: fadeIn 0.5s ease-out;
+  justify-content: center;
+  letter-spacing: 1px;
+  text-align: center;
+
+}
+.warning{
+  background: #ffca28 !important;
+  padding: 12px !important;
 }
 
 @keyframes fadeIn {
